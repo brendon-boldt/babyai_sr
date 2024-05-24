@@ -282,7 +282,7 @@ while sum([status["num_frames"] for status in statuses]) < args.frames:
                 if args.tb:
                     assert len(header) == len(data)
                     for key, value in zip(header, data):
-                        writer[m].add_scalar(key, float(value), statuses[m]["num_frames"])
+                        writers[m].add_scalar(key, float(value), statuses[m]["num_frames"])
             
                 csv_writers[m].writerow(data)
     
@@ -295,7 +295,7 @@ while sum([status["num_frames"] for status in statuses]) < args.frames:
                     for data in datas[m]:
                         assert len(header) == len(data)
                         for key, value in zip(header, data):
-                            writer[m].add_scalar(key, float(value), statuses[m]["num_frames"])
+                            writers[m].add_scalar(key, float(value), statuses[m]["num_frames"])
                 
                 csv_writers[m].writerows(datas[m])
             
